@@ -14,7 +14,7 @@ void jet_fcc1()
   auto df3 = df2.Define("SortedJets_py", "auto sortIndices = ROOT::VecOps::Argsort(Jetpt, [](double x, double y) {return x > y;}); auto values = ROOT::VecOps::Take(Jet.momentum.y, sortIndices); return values;");
   auto df4 = df3.Define("SortedJets_pz", "auto sortIndices = ROOT::VecOps::Argsort(Jetpt, [](double x, double y) {return x > y;}); auto values = ROOT::VecOps::Take(Jet.momentum.z, sortIndices); return values;");
   auto df5 = df4.Define("SortedJets_energy", "auto sortIndices = ROOT::VecOps::Argsort(Jetpt, [](double x, double y) {return x > y;}); auto values = ROOT::VecOps::Take(Jet.energy, sortIndices); return values;");
-  auto df6 = df5.Define("Jets_P4", "auto P4 =Construct< ROOT::Math::PxPyPzEVector>(SortedJets_px, SortedJets_py, SortedJets_pz, SortedJets_energy); return P4;");
+  auto df6 = df5.Define("Jets_P4", "auto P4 = Construct< ROOT::Math::PxPyPzEVector>(SortedJets_px, SortedJets_py, SortedJets_pz, SortedJets_energy); return P4;");
   auto df7 = df6.Define("Dijet_P4", "auto Q4 = Jets_P4[0] + Jets_P4[1]; return Q4;");
   auto df8 = df7.Define("Dijet_pt", "auto pt = Dijet_P4.Pt(); return pt;");
   auto df9 = df8.Define("Dijet_eta", "auto eta = Dijet_P4.Eta(); return eta;");
