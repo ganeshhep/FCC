@@ -4,7 +4,6 @@ void jet_fcc1()
 
   ROOT::RDataFrame df("events", "events_029930132.root");
 
-
   //Defining columns of root dataframe df
   auto df0 = df.Filter("Jet.momentum.x.size() > 1");
   auto df1 = df0.Define("Jetpt", "sqrt(Jet.momentum.x*Jet.momentum.x + Jet.momentum.y*Jet.momentum.y)");
